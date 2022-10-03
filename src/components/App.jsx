@@ -1,7 +1,6 @@
 
 import Statistics from './Statistics/Statistics'
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions'
-import Section from './Section/Section'
 import styled from 'styled-components'
 import { useState } from 'react';
 
