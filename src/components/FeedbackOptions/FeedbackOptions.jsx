@@ -1,34 +1,22 @@
-import styled from 'styled-components'
+import {BtnSection} from './FeedbackOptions.styled.js'
 import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({options, onLeaveFeedback}) => {
-  console.log(options);
     return (
      
         <BtnSection>
-          {(Object.keys(options)).map(key => (
-        <button type="button" key={key} onClick={() => onLeaveFeedback(key)}>
+          {options.map(key => (
+            <button type="button" key={key} onClick={() => onLeaveFeedback(key)}>
           {key}
-        </button>
-      ))}
+            </button>
+         ))}
 
         </BtnSection>
       )
 };
-
 export default FeedbackOptions;
 
-const BtnSection = styled.div`
-  
-        background-color: slategrey;
-        padding: 5px;
-        display: flex;
-        justify-content: space-between;
-    `
-
-    FeedbackOptions.propTypes = {
-      onLeaveFeedback: PropTypes.func,
-      options: PropTypes.shape({
-        key: PropTypes.string,
-      })
-  }
+FeedbackOptions.propTypes = {
+  onLeaveFeedback: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+}
